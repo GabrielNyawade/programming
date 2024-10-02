@@ -5,12 +5,16 @@
 char string[1000];
 
 void check_odd_string();
+void check_even_string();
 
 int main()
 {
     printf("Enter a string: \n");
     fgets(string, sizeof(string), stdin);
+    string[strcspn(string, "\n")] = '\0';
+    printf("Your string is %s\n", string);
     check_odd_string();
+    check_even_string();
     return 0;
 }
 
@@ -22,45 +26,62 @@ int main()
 
 
 void check_odd_string()
-{
-    printf("Your string is %s\n", string);
-    
-    int length = strlen(string)-1;  
+{   
+    int length = strlen(string);  
     char buffer[length];
     
     for (int i = 0; i < length; i++)
     {
-        buffer[0] = string[i];
-        char *lptr = &string[i-1];
-        char *rptr = &string[i+1];
-        
+        int left = i, right = i;
+        int buf_index = 0;
+        buffer[buf_index++] = string[i];
 
-        if (lptr >= string && *rptr != '\0' && *lptr == *rptr)
+        while (left >= 0 && right < length - 1 && string[left - 1] == string[right + 1])
         {
-            printf("Before shifting: %s\n", buffer);
+            left--;
+            right++;
 
-            for (int shift = length; shift >= 0; shift--)
-            {
-                buffer[shift+1] = buffer[shift];
-            }
-            printf("After shifting: %s\n", buffer);
-            buffer[0] = *lptr;
-            buffer[strlen(buffer)-1] = *rptr;
-            printf("After adding: %s\n", buffer);
-
-            lptr--;
-            rptr++;
-
-        }
-
-            break;
+            memmove(&buffer[1], buffer, buf_index);
+            buffer[0] = string[left];
+            buffer[buf_index++] = string[right];
             
-        
+        }
+        buffer[buf_index] = '\0';
+
+        printf("Odd-length palindrome found: %s\n", buffer);
     }
     
+}
 
-    printf("The longest palindrome is: %s\n", buffer);
-   
+void check_even_string()
+{
+    int length = strlen(string);
+    char buffer[length];
 
+    for (int i = 0; i < length; i++)
+    {
+        if (string[i] != string[i + 1])
+        {
+            continue;
+        }
+        int left = i, right = i + 1;
+        int buf_index = 0;
 
+        buffer[buf_index++] = string[left];
+        buffer[buf_index++] = string[right];
+
+        while (left >= 0 && right < length && string[left] == string[right])
+        {
+            left--;
+            right++;
+
+            memmove(&buffer[1], buffer, buf_index);
+            buffer[0] = string[left];
+            buffer[buf_index++] = string[right];
+            
+        }
+        buffer[buf_index] = '\0';
+
+        printf("Even-length palindrome found: %s\n", buffer);
+    }
 }
