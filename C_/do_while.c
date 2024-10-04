@@ -13,7 +13,7 @@ int main()
     scanf("%d", &rows);
     
     char str[128] = "*";
-    char str_add[128] = "**";
+    char str_add[] = "**";
 
     int i = 0;
     do
