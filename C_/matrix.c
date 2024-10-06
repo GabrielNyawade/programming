@@ -14,6 +14,7 @@ int main()
 {
     int option;
     printf("MATRIX CALCULATOR\n");
+    printf("-----------------\n");
     printf("1. Create a matrix\n");
     printf("2. Edit a matrix\n");
     printf("3. Get determinant of a matrix\n");
