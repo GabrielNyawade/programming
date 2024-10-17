@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 void reverse_string(char str[]);
 void dec_to_bin(int a);
@@ -9,9 +10,10 @@ void dec_to_hex(int a);
 int main(int argc, char const *argv[])
 {
     int dec, bin, hex, oct;
-    printf("Enter number to be converted >>> ");
+    printf("Enter aber to be converted >>> ");
     scanf("%d", &dec);
     dec_to_bin(dec);
+    dec_to_hex(dec);
     
 
     return 0;
@@ -32,23 +34,28 @@ void reverse_string(char str[])
 }
 void dec_to_bin(int a)
 {
-    int conv = 0;
-    char str_buf[16];
+    printf("0b");
+    if (a == 0)
+    {
+        printf("0");
+        return;
+    }
+    int bin[32];
+    int i = 0;
     while (a > 0)
     {
-        conv = conv * 10 + a % 2;
-        char post[4];
-        snprintf(post, sizeof(post), "%d", conv);
-        
-        strcat(str_buf, post);
-        a = a / 2;
+        bin[i] = a % 2;
+        a /= 2;
+        i++;
     }
-    reverse_string(str_buf);
-    printf("0b%s\n", str_buf);
-    
+    for (int j = i - 1; j >= 0; j--) 
+        printf("%d", bin[j]);
+
+    printf("\n");
 }
 
 void dec_to_hex(int a)
 {
+    a = pow(a, 3);
 
 }
