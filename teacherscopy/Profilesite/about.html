@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Jeff kubasu">
+        <meta name="description" content="my practice website">
+        <meta name="keywords" content="">
+        <title>My profile</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div id="container">
+        <header>
+            <h1>My super header</h1>
+            <p>My Cool header</p>
+        </header>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li class="active"><a href="about.html">About</a></li>
+                <li><a href="job.html">What we do</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+            </ul>
+        </nav>
+        <main><br>
+            <form method="post" action="" name="forexample" class="formclass">
+                <div><label for="name">Enter your first name: </label><input type="text" name="fname" id="name" required></div>
+                <div><label for="email">Enter your email address: </label><input type="email" name="email" id="email" required></div>
+                <div>
+                    <fieldset>
+                        <legend>Do you agree with the terms</legend>
+                        <label><input type="radio" name="agree" value="yes">YES</label>
+                        <label><input type="radio" name="agree" value="no">NO</label>
+                    </fieldset>
+                </div>
+                <input type="datetime-local" name="date-time" id="date-time"><br>
+                <input type="file" name="cv" accept="image/pdf"><br>
+                <select name="units" name="units" size="2" multiple>
+                    <option value="IAP">Internet Application Programming</option>
+                    <option value="Calculus 4" selected>Calculus IV</option>
+                    <option value="Calculus 3">Calculus III</option>
+                </select>
+                <br>
+                <textarea name="extraInfo" rows="10", cols="30">Please give us some extra info about yourself...</textarea>
+                <br>
+                <input type="submit">
+               
+            </form>
+        </main>
+        </div>
+    </body>
+</html>

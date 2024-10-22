@@ -33,7 +33,7 @@ void reverse_string(char str[])
 void dec_to_bin(int a)
 {
     int conv = 0;
-    char str_buf[16];
+    char str_buf[1];
     while (a > 0)
     {
         conv = conv * 10 + a % 2;
