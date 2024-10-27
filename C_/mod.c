@@ -4,7 +4,8 @@
 int main()
 {
     // modulus (remainder)
-    int num1 = 3, num2 = 4;
+    int num1 = 4;
+    float num2 = 5.0;
     int mod = num1 % num2;
     printf("%d", mod);
     return 0;
