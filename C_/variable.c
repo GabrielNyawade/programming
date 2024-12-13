@@ -2,10 +2,9 @@
 #include <stdlib.h>
 
 int main() {
-    char *username = getenv("USERNAME");
-    printf("%s\n", username);
-    int a;
-    printf("%d\n", a);
+    char name[16];
+    printf("Enter your name: ");
+    scanf("%s", name);
+    printf("%s\n", name);
     return 0;
-
 }

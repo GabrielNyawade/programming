@@ -67,3 +67,8 @@ nav li a {
 nav li:hover {
     background-color: azure;
 }
+
+#top button {
+    padding: 0.5vh;
+    font-size: 1.2vw;
+}

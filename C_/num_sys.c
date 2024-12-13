@@ -34,10 +34,6 @@ void reverse_string(char str[])
 }
 void dec_to_bin(int a)
 {
-<<<<<<< HEAD
-    int conv = 0;
-    char str_buf[1];
-=======
     printf("0b");
     if (a == 0)
     {
@@ -46,7 +42,6 @@ void dec_to_bin(int a)
     }
     int bin[32];
     int i = 0;
->>>>>>> refs/remotes/origin/main
     while (a > 0)
     {
         bin[i] = a % 2;
