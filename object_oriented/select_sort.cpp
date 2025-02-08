@@ -17,28 +17,36 @@ std::vector<int> sort_vector(std::vector<int>& vec)
 			}
 		}
 		output.push_back(val1);
+		// to erase the lowest value fron the initial vector
+		bool deleted = false;
 		for (i = 0; i < vec.size(); i++)
 		{
-			if (vec[i] == val1)
+			if (vec[i] == val1 && !deleted)
+			{
 				vec.erase(vec.begin() + i);
+				deleted = true;
+			}
 		}
-		i = 1;
-		val1 = vec[0];
+		val1 = vec[0]; // to reset the first comparison value to the beginning of the vector
 	}
 	output.push_back(val1);
 	return output;
 }
 
+void show_vector(const std::vector<int>& vec)
+{
+	std::cout << "{";
+	for (int i = 0; i < vec.size(); i++)
+	{
+		std::cout << vec[i];
+		if (i < vec.size() - 1) std::cout << ", ";
+	}
+	std::cout << "}" << "\n";
+}
 int main()
 {
 	std::vector<int> numbers = { 15, 9, 6, 4, 12, 27, 30, 13, 1, 42, 57, 19, 3, 67, 4, 1, 0 };
 	std::vector<int> numbers_sorted = sort_vector(numbers);
-	std::cout << "{";
-	for (int i = 0; i < numbers_sorted.size(); i++)
-	{
-		std::cout << numbers_sorted[i];
-		if (i < numbers_sorted.size() - 1) std::cout << ", ";
-	}
-	std::cout << "}" << "\n";
+	show_vector(numbers_sorted);
 	return 0;
 }
