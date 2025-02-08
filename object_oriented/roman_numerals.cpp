@@ -1,12 +1,12 @@
 #include <iostream>
 #include <string>
-#define I   1
-#define V   5
-#define X	10
-#define L	50
-#define C	100
-#define D	500
-#define M	1000
+#define I 1
+#define V 5
+#define X 10
+#define L 50
+#define C 100
+#define D 500
+#define M 1000
 
 std::string intToRoman(int num) {
 	std::string output;
