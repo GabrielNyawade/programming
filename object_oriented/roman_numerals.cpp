@@ -16,15 +16,39 @@ std::string intToRoman(int num) {
 			output.append("M");
 		
 		num = num % M;
-		for (int i = 0; i < (num - (num % D)) / D; i++)
-			output.append("D");
-		
-		num = num % D;
-		for (int i = 0; i < (num - (num % C)) / C; i++)
-			output.append("C");
 
-		num = num % C;
-		if (num < 50 && num >= 40)
+		if (num < M && num >= M - C)
+		{
+			output.append("CM");
+			num -= M - C;
+		}
+		else
+		{
+			for (int i = 0; i < (num - (num % D)) / D; i++)
+				output.append("D");
+		
+			num = num % D;
+		}
+		
+		if (num < D && num >= D - C)
+		{
+			output.append("CD");
+			num -= D - C;
+		}
+		else
+		{
+			for (int i = 0; i < (num - (num % C)) / C; i++)
+				output.append("C");
+
+			num = num % C;
+		}
+		
+		if (num < C && num >= C - X)
+		{
+			output.append("XC");
+			num -= C - X;
+		}
+		else if (num < L && num >= L - X)
 		{
 			output.append("XL");
 			num -= (L - X);
@@ -36,10 +60,12 @@ std::string intToRoman(int num) {
 
 			num = num % L;
 		}
+		
 		for (int i = 0; i < (num - (num % X)) / X; i++)
 			output.append("X");
 
 		num = num % X;
+		
 		if (num == X - 1)
 		{
 			output.append("IX");
@@ -57,6 +83,7 @@ std::string intToRoman(int num) {
 
 			num = num % V;
 		}
+		
 		for (int i = 0; i < num; i++)
 		{
 			output.append("I");
