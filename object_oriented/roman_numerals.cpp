@@ -24,18 +24,39 @@ std::string intToRoman(int num) {
 			output.append("C");
 
 		num = num % C;
-		for (int i = 0; i < (num - (num % L)) / L; i++)
-			output.append("L");
+		if (num < 50 && num >= 40)
+		{
+			output.append("XL");
+			num -= (L - X);
+		}
+		else
+		{
+			for (int i = 0; i < (num - (num % L)) / L; i++)
+				output.append("L");
 
-		num = num % L;
+			num = num % L;
+		}
 		for (int i = 0; i < (num - (num % X)) / X; i++)
 			output.append("X");
 
 		num = num % X;
-		for (int i = 0; i < (num - (num % V)) / V; i++)
-			output.append("V");
+		if (num == X - 1)
+		{
+			output.append("IX");
+			num = 0;
+		}
+		else if (num == V - I)
+		{
+			output.append("IV");
+			num = 0;
+		}
+		else
+		{
+			for (int i = 0; i < (num - (num % V)) / V; i++)
+				output.append("V");
 
-		num = num & V;
+			num = num % V;
+		}
 		for (int i = 0; i < num; i++)
 		{
 			output.append("I");
@@ -46,7 +67,9 @@ std::string intToRoman(int num) {
 }
 int main()
 {
-	int year = 1824;
-	std::cout << intToRoman(year);
+	int year;
+	std::cout << "Enter number >>> ";
+	std::cin >> year;
+	std::cout << year << " in Roman numerals is " << intToRoman(year) << "\n";
 	return 0;
 }
