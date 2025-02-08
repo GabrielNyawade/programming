@@ -26,7 +26,6 @@ void show_vector(const std::vector<int>& vec)
 
 }
 
-
 int main()
 {
 	std::vector<int> numbers = { 15, 9, 6, 4, 12, 27, 30, 13, 1, 42, 57, 19, 3, 67, 4, 1, 0 };
