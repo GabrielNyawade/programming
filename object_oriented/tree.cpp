@@ -10,6 +10,15 @@ struct Node
 
 Node *head = nullptr;
 
+void addLevel(int leftval = 0, int rightval = 0)
+{
+  if (head == nullptr)
+  {
+    Node* root = new Node;
+    root->data = leftval;
+  }
+}
+
 int main()
 {
 
