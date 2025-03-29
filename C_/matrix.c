@@ -41,7 +41,7 @@ void createMatrix()
     printf("n = ?\n");
     scanf("%d", &n);
     if (m <= 0 && n <= 0)
-    terminate_exe("Invalid dimensions (Accepts positive non-zero integers)\n");
+        terminate_exe("Invalid dimensions (Accepts positive non-zero integers)\n");
 
 
 

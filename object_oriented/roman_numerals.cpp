@@ -15,9 +15,9 @@ std::string intToRoman(int num) {
 		for (int i = 0; i < (num - (num % M)) / M; i++)
 			output.append("M");
 		
-		num = num % M;
+		num %= M;
 
-		if (num < M && num >= M - C)
+		if (num >= M - C)
 		{
 			output.append("CM");
 			num -= M - C;
@@ -27,10 +27,10 @@ std::string intToRoman(int num) {
 			for (int i = 0; i < (num - (num % D)) / D; i++)
 				output.append("D");
 		
-			num = num % D;
+			num %= D;
 		}
 		
-		if (num < D && num >= D - C)
+		if (num >= D - C)
 		{
 			output.append("CD");
 			num -= D - C;
