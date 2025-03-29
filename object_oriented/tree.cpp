@@ -3,10 +3,11 @@
 struct Node
 {
     int data;
-    int *ptr;
+    Node* left;
+    Node* right;
 };
 
-Node *head = NULL;
+Node *head = nullptr;
 
 int main()
 {
